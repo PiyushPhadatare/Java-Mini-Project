@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Seats — CineBook</title>
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/seats.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="brand">CINE<span>BOOK</span><small>Movies &bull; Shows &bull; Seats &bull; Tickets</small></a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <a href="index.html" data-page="index.html">Home</a>
+        <a href="movies.html" data-page="movies.html">Movies</a>
+        <a href="my-bookings.html" data-page="my-bookings.html">My Bookings</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="movies.html" class="icon-btn" aria-label="Search movies" title="Search movies">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header page-header--with-back">
+        <a href="shows.html" class="back-link">&larr; Change Show</a>
+      </div>
+
+      <div id="seatsContent" class="section" hidden>
+        <h1 id="seatsMovieTitle">—</h1>
+        <div class="show-strip">
+          <strong id="seatsTheaterInfo">—</strong>
+          <span class="dot"></span>
+          <span id="seatsShowInfo">—</span>
+        </div>
+
+        <div class="seats-layout">
+          <div class="seat-panel">
+            <div class="screen-shape" aria-hidden="true"></div>
+            <p class="screen-label">SCREEN</p>
+
+            <div class="seat-grid" id="seatGrid"></div>
+
+            <div class="seat-legend">
+              <span class="seat-legend__item"><span class="seat-legend__swatch seat-legend__swatch--available"></span>Available</span>
+              <span class="seat-legend__item"><span class="seat-legend__swatch seat-legend__swatch--premium"></span>Premium</span>
+              <span class="seat-legend__item"><span class="seat-legend__swatch seat-legend__swatch--recliner"></span>Recliner</span>
+              <span class="seat-legend__item"><span class="seat-legend__swatch seat-legend__swatch--selected"></span>Selected</span>
+              <span class="seat-legend__item"><span class="seat-legend__swatch seat-legend__swatch--booked"></span>Booked</span>
+            </div>
+          </div>
+
+          <aside class="summary-card" aria-label="Booking summary">
+            <h2 class="summary-card__title">Booking Summary</h2>
+            <dl class="summary-card__list">
+              <div class="summary-row"><dt>Seats</dt><dd id="summarySeats">—</dd></div>
+              <div class="summary-row"><dt>Tickets</dt><dd id="summaryCount">0</dd></div>
+              <div class="summary-row"><dt>Ticket Amount</dt><dd id="summarySubtotal">&#8377;0</dd></div>
+              <div class="summary-row"><dt>Convenience Fee</dt><dd id="summaryFee">&#8377;0</dd></div>
+              <div class="summary-row summary-row--total"><dt>Total</dt><dd id="summaryTotal">&#8377;0</dd></div>
+            </dl>
+            <button type="button" class="btn btn-primary btn-block" id="continueBtn">Continue</button>
+            <p class="summary-note">You can select up to 6 seats per booking.</p>
+          </aside>
+        </div>
+      </div>
+
+      <div class="empty-state" id="seatsEmptyState" hidden>
+        <div class="empty-state__icon">&#127909;</div>
+        <h2 id="seatsEmptyMessage">Please select a show.</h2>
+        <a href="movies.html" class="btn btn-primary">Back to Movies</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 CineBook. Demo project — no real bookings or payments are made.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/seats.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+/* =========================================================
+   CineBook — seats.css
+   Styles specific to seats.html: the screen indicator, the
+   generated seat grid and its states, the legend, and the
+   two-column layout with the sticky live summary.
+   ========================================================= */
+
+.show-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  margin-top: 10px;
+}
+
+.show-strip strong {
+  color: var(--color-text);
+}
+
+.show-strip .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-text-faint);
+}
+
+.seats-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  align-items: start;
+  margin-top: 30px;
+}
+
+.seat-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  padding: 30px 20px 34px;
+}
+
+/* Screen indicator */
+.screen-shape {
+  width: 100%;
+  max-width: 520px;
+  height: 34px;
+  margin: 0 auto 10px;
+  background: linear-gradient(180deg, rgba(226, 35, 26, 0.55), rgba(226, 35, 26, 0.05));
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  transform: perspective(200px) rotateX(-6deg);
+}
+
+.screen-label {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  color: var(--color-text-faint);
+  margin-bottom: 40px;
+}
+
+/* Seat grid */
+.seat-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.seat-row__label {
+  width: 20px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-faint);
+}
+
+.seat-row__seats {
+  display: flex;
+  gap: 8px;
+}
+
+.seat-row__aisle {
+  width: 18px;
+  flex-shrink: 0;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 8px 8px 10px 10px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-faint);
+  font-size: 0.62rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s ease, background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.seat:hover:not(.seat--booked) {
+  border-color: var(--color-text-faint);
+  transform: translateY(-2px);
+}
+
+.seat--premium {
+  border-color: rgba(255, 183, 3, 0.4);
+}
+
+.seat--recliner {
+  border-color: rgba(47, 216, 137, 0.4);
+  border-radius: 10px 10px 14px 14px;
+}
+
+.seat--selected {
+  background: var(--color-seat-selected);
+  border-color: var(--color-seat-selected);
+  color: #fff;
+}
+
+.seat--booked {
+  background: var(--color-seat-booked);
+  border-color: var(--color-seat-booked);
+  color: #4a4f5c;
+  cursor: not-allowed;
+}
+
+.seat--booked:hover {
+  transform: none;
+}
+
+/* Legend */
+.seat-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.seat-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.seat-legend__swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1px solid var(--color-border);
+}
+
+.seat-legend__swatch--available {
+  background: transparent;
+}
+
+.seat-legend__swatch--premium {
+  border-color: rgba(255, 183, 3, 0.5);
+}
+
+.seat-legend__swatch--recliner {
+  border-color: rgba(47, 216, 137, 0.5);
+}
+
+.seat-legend__swatch--selected {
+  background: var(--color-seat-selected);
+  border-color: var(--color-seat-selected);
+}
+
+.seat-legend__swatch--booked {
+  background: var(--color-seat-booked);
+  border-color: var(--color-seat-booked);
+}
+
+/* Sidebar summary sticks while scrolling on desktop */
+.seats-layout .summary-card {
+  position: sticky;
+  top: calc(var(--header-height) + 20px);
+}
+
+@media (max-width: 900px) {
+  .seats-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .seats-layout .summary-card {
+    position: static;
+  }
+
+  .seat-panel {
+    padding: 24px 12px 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .seat {
+    width: 26px;
+    height: 26px;
+  }
+
+  .seat-row__seats {
+    gap: 6px;
+  }
+
+  .seat-row {
+    gap: 6px;
+  }
+}

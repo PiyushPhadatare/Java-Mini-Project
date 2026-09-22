@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details — CineBook</title>
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="brand">CINE<span>BOOK</span><small>Movies &bull; Shows &bull; Seats &bull; Tickets</small></a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <a href="index.html" data-page="index.html">Home</a>
+        <a href="movies.html" data-page="movies.html">Movies</a>
+        <a href="my-bookings.html" data-page="my-bookings.html">My Bookings</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="movies.html" class="icon-btn" aria-label="Search movies" title="Search movies">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header page-header--with-back">
+        <a href="movies.html" class="back-link">&larr; Back to Movies</a>
+      </div>
+
+      <div id="detailsContent" class="section" hidden>
+        <div class="detail-grid">
+          <img src="" alt="" class="detail-poster" id="detailPoster">
+          <div class="detail-info">
+            <div class="badge-row">
+              <span class="badge" id="detailCertificate">UA</span>
+              <span class="badge" id="detailReleaseDate">—</span>
+            </div>
+            <h1 id="detailTitle">—</h1>
+            <p class="detail-info__rating" id="detailRating">&#9733; —</p>
+            <p class="detail-info__meta" id="detailGenre">—</p>
+            <p class="detail-info__meta" id="detailMeta">—</p>
+
+            <h2>About this movie</h2>
+            <p id="detailDescription">—</p>
+
+            <button type="button" class="btn btn-primary" id="selectShowBtn">Select Show</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="empty-state" id="detailsEmptyState" hidden>
+        <div class="empty-state__icon">&#127909;</div>
+        <h2>Movie information is unavailable.</h2>
+        <p>Please choose a movie from the catalog to see its details.</p>
+        <a href="movies.html" class="btn btn-primary">Back to Movies</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 CineBook. Demo project — no real bookings or payments are made.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/movie-details.js"></script>
+</body>
+</html>

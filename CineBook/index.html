@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineBook — Movies, Shows, Seats, Tickets</title>
+  <meta name="description" content="CineBook is a demo movie ticket booking experience — browse movies, pick a show, choose your seats and check out.">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="brand">CINE<span>BOOK</span><small>Movies &bull; Shows &bull; Seats &bull; Tickets</small></a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <a href="index.html" data-page="index.html">Home</a>
+        <a href="movies.html" data-page="movies.html">Movies</a>
+        <a href="my-bookings.html" data-page="my-bookings.html">My Bookings</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="movies.html" class="icon-btn" aria-label="Search movies" title="Search movies">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <img src="" alt="" class="hero__bg" id="heroBanner">
+        <div class="hero__content">
+          <span class="hero__eyebrow">CINEMA, SIMPLIFIED</span>
+          <h1 class="hero__title">Your movie.<br>Your seat.<br><em>Your experience.</em></h1>
+          <p class="hero__subtitle">Book movie tickets in a few simple steps — browse what's playing, pick a show, choose your seats, and you're done.</p>
+          <div class="hero__actions">
+            <a href="movies.html" class="btn btn-primary">Explore Movies</a>
+            <a href="my-bookings.html" class="btn btn-outline">My Bookings</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="featuredHeading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2 id="featuredHeading">Featured Movies</h2>
+            <p>Handpicked from what's playing this week.</p>
+          </div>
+          <a href="movies.html">View all movies &rarr;</a>
+        </div>
+        <div class="movie-grid" id="featuredMoviesGrid"></div>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="whyHeading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2 id="whyHeading">Why CineBook</h2>
+            <p>Everything you need for a smooth trip to the movies.</p>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M8 15h4"></path></svg>
+            </div>
+            <h3>Easy Booking</h3>
+            <p>Find a movie and lock in a show in just a few taps, no sign-up required for this demo.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect></svg>
+            </div>
+            <h3>Choose Your Seat</h3>
+            <p>An interactive seating chart shows exactly what's open, selected, or already taken.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+            </div>
+            <h3>Instant Confirmation</h3>
+            <p>Your booking ID and ticket summary appear the moment checkout finishes.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h3>Simple Experience</h3>
+            <p>No clutter, no distractions — just the steps you need between browsing and your seat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">CINE<span>BOOK</span></a>
+          <p>A demo frontend movie ticket booking experience built with HTML, CSS and vanilla JavaScript.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movies.html">Movies</a></li>
+            <li><a href="my-bookings.html">My Bookings</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Genres</h4>
+          <ul>
+            <li><a href="movies.html">Action</a></li>
+            <li><a href="movies.html">Drama</a></li>
+            <li><a href="movies.html">Sci-Fi</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">College Mini Project</a></li>
+            <li><a href="#">Frontend Only Demo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CineBook. Demo project — no real bookings or payments are made.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

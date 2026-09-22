@@ -1,0 +1,42 @@
+/* =========================================================
+   CineBook — movies.css
+   Styles specific to movies.html: the search + genre filter
+   toolbar sitting above the movie grid.
+   ========================================================= */
+
+.catalog-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 26px 0 32px;
+}
+
+.catalog-toolbar .search-input-wrap {
+  flex: 1;
+  min-width: 220px;
+}
+
+.catalog-count {
+  font-size: 0.85rem;
+  color: var(--color-text-faint);
+  margin: -14px 0 22px;
+}
+
+@media (max-width: 640px) {
+  .catalog-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .catalog-toolbar .pill-group {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .catalog-toolbar .pill-group::-webkit-scrollbar {
+    height: 4px;
+  }
+}

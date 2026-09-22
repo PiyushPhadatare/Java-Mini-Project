@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmed — CineBook</title>
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="brand">CINE<span>BOOK</span><small>Movies &bull; Shows &bull; Seats &bull; Tickets</small></a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <a href="index.html" data-page="index.html">Home</a>
+        <a href="movies.html" data-page="movies.html">Movies</a>
+        <a href="my-bookings.html" data-page="my-bookings.html">My Bookings</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="movies.html" class="icon-btn" aria-label="Search movies" title="Search movies">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="confirmation-wrap">
+        <div id="confirmationContent" class="confirmation-card" hidden>
+          <div class="confirmation-card__icon">&#10003;</div>
+          <h1>Booking Confirmed</h1>
+          <p class="confirmation-card__subtitle">Your tickets are booked. Enjoy the show!</p>
+
+          <div class="confirmation-card__id">
+            <span>Booking ID</span>
+            <strong id="confBookingId">—</strong>
+          </div>
+
+          <dl class="confirmation-card__details summary-card__list">
+            <div class="summary-row"><dt>Movie</dt><dd id="confMovie">—</dd></div>
+            <div class="summary-row"><dt>Theater</dt><dd id="confTheater">—</dd></div>
+            <div class="summary-row"><dt>Screen</dt><dd id="confScreen">—</dd></div>
+            <div class="summary-row"><dt>Date / Time</dt><dd id="confDateTime">—</dd></div>
+            <div class="summary-row"><dt>Seats</dt><dd id="confSeats">—</dd></div>
+            <div class="summary-row summary-row--total"><dt>Total</dt><dd id="confTotal">&#8377;0</dd></div>
+          </dl>
+
+          <div class="confirmation-card__actions">
+            <a href="my-bookings.html" class="btn btn-primary">View My Bookings</a>
+            <a href="index.html" class="btn btn-outline">Back to Home</a>
+          </div>
+        </div>
+
+        <div class="empty-state" id="confirmationEmptyState" hidden>
+          <div class="empty-state__icon">&#127909;</div>
+          <h2>No booking found.</h2>
+          <p>Book a movie first to see a confirmation here.</p>
+          <a href="movies.html" class="btn btn-primary">Explore Movies</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 CineBook. Demo project — no real bookings or payments are made.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/confirmation.js"></script>
+</body>
+</html>
