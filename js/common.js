@@ -9,8 +9,95 @@
 /* ---------- Navigation ---------- */
 function initNavigation() {
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  const navLinks = document.querySelectorAll(".main-nav a[data-page]");
+  const nav = document.getElementById("mainNav");
 
+  // Inject "Genres" dropdown right after "Movies" link
+  if (nav && !document.getElementById("navGenreDropdown")) {
+    const genreCounts = {};
+    const defaultGenres = ["Action", "Adventure", "Anime", "Comedy", "Drama", "Horror", "Romance", "Sci-Fi", "Thriller"];
+    if (typeof movies !== "undefined" && Array.isArray(movies)) {
+      movies.forEach((m) => {
+        m.genre.forEach((g) => {
+          genreCounts[g] = (genreCounts[g] || 0) + 1;
+        });
+      });
+    } else {
+      defaultGenres.forEach((g) => { genreCounts[g] = ""; });
+    }
+
+    const sortedGenres = Object.keys(genreCounts).sort();
+    const totalCount = typeof movies !== "undefined" ? movies.length : "";
+
+    const dropdownWrap = document.createElement("div");
+    dropdownWrap.className = "nav-dropdown";
+    dropdownWrap.id = "navGenreDropdown";
+
+    const itemsHtml = [
+      `<a href="movies.html?genre=All" class="nav-dropdown__item" data-genre="All">
+         <span>All Genres</span>
+         ${totalCount ? `<span class="nav-dropdown__count">${totalCount}</span>` : ""}
+       </a>`,
+      ...sortedGenres.map(
+        (g) => `
+        <a href="movies.html?genre=${encodeURIComponent(g)}" class="nav-dropdown__item" data-genre="${g}">
+          <span>${g}</span>
+          ${genreCounts[g] ? `<span class="nav-dropdown__count">${genreCounts[g]}</span>` : ""}
+        </a>`
+      )
+    ].join("");
+
+    dropdownWrap.innerHTML = `
+      <button type="button" class="nav-dropdown__toggle" id="navGenreToggle" aria-expanded="false" aria-haspopup="true">
+        <span>Genres</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="nav-dropdown__menu" id="navGenreMenu" hidden>
+        ${itemsHtml}
+      </div>
+    `;
+
+    const moviesLink = nav.querySelector('a[data-page="movies.html"]');
+    if (moviesLink && moviesLink.nextSibling) {
+      nav.insertBefore(dropdownWrap, moviesLink.nextSibling);
+    } else {
+      nav.appendChild(dropdownWrap);
+    }
+
+    const genreToggle = document.getElementById("navGenreToggle");
+    const genreMenu = document.getElementById("navGenreMenu");
+
+    genreToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const willOpen = genreMenu.hidden;
+      genreMenu.hidden = !willOpen;
+      genreToggle.classList.toggle("is-open", willOpen);
+      genreToggle.setAttribute("aria-expanded", String(willOpen));
+    });
+
+    genreMenu.addEventListener("click", (e) => {
+      const item = e.target.closest(".nav-dropdown__item");
+      if (!item) return;
+      const selectedGenre = item.dataset.genre;
+      genreMenu.hidden = true;
+      genreToggle.classList.remove("is-open");
+      genreToggle.setAttribute("aria-expanded", "false");
+
+      if (typeof window.selectGenreFromNav === "function") {
+        e.preventDefault();
+        window.selectGenreFromNav(selectedGenre);
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!dropdownWrap.contains(e.target)) {
+        genreMenu.hidden = true;
+        genreToggle.classList.remove("is-open");
+        genreToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  const navLinks = document.querySelectorAll(".main-nav > a[data-page]");
   navLinks.forEach((link) => {
     if (link.dataset.page === currentPage) {
       link.classList.add("is-active");
@@ -20,7 +107,6 @@ function initNavigation() {
   });
 
   const toggle = document.getElementById("menuToggle");
-  const nav = document.getElementById("mainNav");
 
   if (toggle && nav) {
     toggle.addEventListener("click", () => {

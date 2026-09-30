@@ -12,6 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("moviesGrid");
   if (!grid) return; // safety check in case script loads elsewhere
 
+  // Check if a genre was selected from the top navbar dropdown (?genre=...)
+  const params = new URLSearchParams(window.location.search);
+  const urlGenre = params.get("genre");
+  if (urlGenre) {
+    activeGenre = urlGenre;
+  }
+
   bindMovieCardActions(grid);
   renderGenreFilters();
   renderMoviesGrid();
@@ -24,6 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+window.selectGenreFromNav = function (genre) {
+  activeGenre = genre || "All";
+  const filterBar = document.getElementById("genreFilters");
+  if (filterBar) {
+    filterBar.querySelectorAll(".pill").forEach((p) => {
+      p.classList.toggle("is-active", p.dataset.genre === activeGenre);
+    });
+  }
+  const url = new URL(window.location.href);
+  if (activeGenre === "All") {
+    url.searchParams.delete("genre");
+  } else {
+    url.searchParams.set("genre", activeGenre);
+  }
+  window.history.replaceState({}, "", url);
+  renderMoviesGrid();
+};
 
 function renderGenreFilters() {
   const filterBar = document.getElementById("genreFilters");
