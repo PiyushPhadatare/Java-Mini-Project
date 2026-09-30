@@ -36,9 +36,12 @@
     <div class="container">
       <div class="confirmation-wrap">
         <div id="confirmationContent" class="confirmation-card" hidden>
-          <div class="confirmation-card__icon">&#10003;</div>
-          <h1>Booking Confirmed</h1>
-          <p class="confirmation-card__subtitle">Your tickets are booked. Enjoy the show!</p>
+          <div id="confCancelledBanner" class="confirmation-cancelled-banner" hidden>
+            &#10007; This ticket has been cancelled
+          </div>
+          <div class="confirmation-card__icon" id="confIcon">&#10003;</div>
+          <h1 id="confHeading">Booking Confirmed</h1>
+          <p class="confirmation-card__subtitle" id="confSubtitle">Your tickets are booked. Enjoy the show!</p>
 
           <div class="confirmation-card__id">
             <span>Booking ID</span>

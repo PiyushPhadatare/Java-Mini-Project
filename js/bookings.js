@@ -62,20 +62,22 @@ function renderBookingCard(booking) {
   return `
     <article class="booking-card${isCancelled ? " booking-card--cancelled" : ""}">
       <div class="booking-card__main">
-        <h3>${booking.movieTitle}${isCancelled ? ' <span class="booking-badge booking-badge--cancelled">Cancelled</span>' : ' <span class="booking-badge booking-badge--active">Active</span>'}</h3>
+        <h3>${booking.movieTitle}</h3>
         <p class="booking-card__meta">${booking.theater} \u2022 ${booking.screen}</p>
         <p class="booking-card__meta">${formatDateShort(booking.date)} \u2022 ${booking.time}</p>
         <p class="booking-card__meta">Seats: ${booking.seats.join(", ")}</p>
         <p class="booking-card__meta">Booking ID: ${booking.bookingId}</p>
       </div>
       <div class="booking-card__side">
-        <span class="booking-card__amount">${formatCurrency(booking.totalAmount)}</span>
+        <span class="booking-card__amount${isCancelled ? " booking-card__amount--cancelled" : ""}">${formatCurrency(booking.totalAmount)}</span>
+        <span class="booking-badge ${isCancelled ? "booking-badge--cancelled" : "booking-badge--active"}">${isCancelled ? "&#10007; Cancelled" : "&#10003; Active"}</span>
         <button type="button" class="btn btn-outline btn-sm view-booking-btn" data-booking-id="${booking.bookingId}">View Details</button>
         ${!isCancelled
-          ? `<button type="button" class="btn btn-sm cancel-booking-btn" data-booking-id="${booking.bookingId}" style="background:var(--color-accent-soft);color:var(--color-accent);border:1px solid var(--color-accent);margin-top:6px;">Cancel Ticket</button>`
+          ? `<button type="button" class="btn btn-sm cancel-booking-btn" data-booking-id="${booking.bookingId}">Cancel Ticket</button>`
           : ""}
       </div>
     </article>
   `;
 }
+
 

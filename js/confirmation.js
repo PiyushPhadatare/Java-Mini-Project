@@ -19,6 +19,22 @@ document.addEventListener("DOMContentLoaded", () => {
   if (emptyState) emptyState.hidden = true;
   if (content) content.hidden = false;
 
+  // Show cancelled state if this booking was cancelled
+  const isCancelled = booking.status === "cancelled";
+  const banner = document.getElementById("confCancelledBanner");
+  const icon   = document.getElementById("confIcon");
+  const heading = document.getElementById("confHeading");
+  const subtitle = document.getElementById("confSubtitle");
+
+  if (isCancelled) {
+    if (banner)  banner.hidden = false;
+    if (icon)    icon.textContent = "✕";
+    if (icon)    icon.style.background = "var(--color-accent-soft)";
+    if (icon)    icon.style.color = "var(--color-accent)";
+    if (heading) heading.textContent = "Ticket Cancelled";
+    if (subtitle) subtitle.textContent = "This booking has been cancelled and the seats have been released.";
+  }
+
   setText("confBookingId", booking.bookingId);
   setText("confMovie", booking.movieTitle);
   setText("confTheater", booking.theater);
