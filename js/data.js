@@ -157,12 +157,12 @@ const movies = [
     genre: ["Anime", "Adventure", "Romance"],
     language: "Japanese",
     duration: "2h 02m",
-    rating: 8.0,
+    rating: 8.3,
     certificate: "U",
     releaseDate: "2022-11-11",
     description:
       "A 17-year-old girl named Suzume discovers a mysterious door in ruins across Japan. On the other side lies a world of stars that could bring disaster to anyone who opens it.",
-    poster: "https://image.tmdb.org/t/p/w500/lPsD10PP4rgUGiGR4CCXA6iY0QQ.jpg",
+    poster: "assets/images/movies/suzume.jpg",
     banner: "https://image.tmdb.org/t/p/w1280/dIWwZW7dJJtqC6CgWzYkNVKIUm8.jpg"
   },
   {
@@ -296,7 +296,7 @@ const movies = [
     banner: "assets/images/banners/silver-static.svg"
   },
 
-  /* ── ONGOING / BRAND NEW ── */
+  /* ── ONGOING / BRAND NEW & FAN FAVORITES ── */
   {
     id: 21,
     title: "Spider-Man: Brand New Day",
@@ -310,6 +310,34 @@ const movies = [
       "Erased from the memories of everyone he loves, Peter Parker starts over in New York City as a street-level hero while a new underworld war pushes his double life to the breaking point.",
     poster: "https://upload.wikimedia.org/wikipedia/en/9/9a/Spider-Man_Brand_New_Day_poster.jpg",
     banner: "assets/images/banners/starbound-legacy.svg"
+  },
+  {
+    id: 22,
+    title: "Raya and the Last Dragon",
+    genre: ["Adventure", "Action"],
+    language: "English",
+    duration: "1h 47m",
+    rating: 7.7,
+    certificate: "U",
+    releaseDate: "2021-03-05",
+    description:
+      "Long ago, in the fantasy world of Kumandra, humans and dragons lived together in harmony. Five hundred years later, a lone warrior named Raya must track down the legendary last dragon to restore the fractured land.",
+    poster: "https://image.tmdb.org/t/p/w500/lPsD10PP4rgUGiGR4CCXA6iY0QQ.jpg",
+    banner: "assets/images/banners/starbound-legacy.svg"
+  },
+  {
+    id: 23,
+    title: "Avengers: Endgame",
+    genre: ["Action", "Adventure", "Sci-Fi"],
+    language: "English",
+    duration: "3h 01m",
+    rating: 8.9,
+    certificate: "UA",
+    releaseDate: "2019-04-26",
+    description:
+      "After the devastating events of Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
+    poster: "assets/images/movies/avengers-endgame.jpg",
+    banner: "assets/images/banners/crimson-horizon.svg"
   }
 ];
 
