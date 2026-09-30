@@ -138,7 +138,17 @@ function bindMovieCardActions(containerEl) {
     if (!movie) return;
 
     saveSelectedMovie(movie);
-    window.location.href = detailsBtn ? "movie-details.html" : "shows.html";
+
+    if (bookBtn) {
+      // Route guard: must be logged in to book
+      if (typeof isLoggedIn === 'function' && !isLoggedIn()) {
+        window.location.href = 'login.html?redirect=shows.html';
+        return;
+      }
+      window.location.href = 'shows.html';
+    } else {
+      window.location.href = 'movie-details.html';
+    }
   });
 }
 

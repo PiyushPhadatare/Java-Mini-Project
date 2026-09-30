@@ -5,9 +5,8 @@
    ========================================================= */
 
 /* ---------- Movies ----------
-   Poster URLs use TMDB open image CDN (publicly accessible,
-   no API key needed for direct image links) and Wikimedia
-   Commons — both are safe for educational/demo projects. */
+   Poster URLs use verified TMDB & Wikimedia Commons URLs
+   (2:3 aspect ratio, HTTPS, publicly accessible). */
 const movies = [
   /* ── ORIGINAL 8 (kept exactly as-is) ── */
   {
@@ -136,7 +135,7 @@ const movies = [
     description:
       "Tanjiro and his friends join the Flame Hashira Rengoku on the Mugen Train to investigate the disappearance of over forty people aboard a demon-infested locomotive.",
     poster: "https://image.tmdb.org/t/p/w500/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
-    banner: "https://image.tmdb.org/t/p/w1280/jqEjHDalQ0mMvJhX0NcMg8Bys0a.jpg"
+    banner: "https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg"
   },
   {
     id: 10,
@@ -149,8 +148,8 @@ const movies = [
     releaseDate: "2021-12-24",
     description:
       "Yuta Okkotsu, a high schooler haunted by the powerful cursed spirit of his childhood friend Rika, enrolls at Jujutsu High to learn to control her power before a sinister sorcerer exploits it.",
-    poster: "https://image.tmdb.org/t/p/w500/23zzOHjECze4cEExFiPyXbmCVqX.jpg",
-    banner: "https://image.tmdb.org/t/p/w1280/59gFH53BIjOXJqF3qCj0dlHZFdP.jpg"
+    poster: "https://upload.wikimedia.org/wikipedia/en/7/77/Gekij%C5%8D-ban_Jujutsu_Kaisen_0.png",
+    banner: "assets/images/banners/iron-lotus.svg"
   },
   {
     id: 11,
@@ -164,7 +163,7 @@ const movies = [
     description:
       "A 17-year-old girl named Suzume discovers a mysterious door in ruins across Japan. On the other side lies a world of stars that could bring disaster to anyone who opens it.",
     poster: "https://image.tmdb.org/t/p/w500/lPsD10PP4rgUGiGR4CCXA6iY0QQ.jpg",
-    banner: "https://image.tmdb.org/t/p/w1280/4MDF0VIhPPJVmGfRvpx2MmVuNBm.jpg"
+    banner: "https://image.tmdb.org/t/p/w1280/dIWwZW7dJJtqC6CgWzYkNVKIUm8.jpg"
   },
   {
     id: 12,
@@ -177,8 +176,8 @@ const movies = [
     releaseDate: "2016-09-17",
     description:
       "A young man who bullied a deaf girl in elementary school seeks her forgiveness after years of guilt and social isolation, leading to a moving journey of redemption and connection.",
-    poster: "https://image.tmdb.org/t/p/w500/tuFGtvSFsCBRFSmTkFXSfcLFQaL.jpg",
-    banner: "https://image.tmdb.org/t/p/w1280/rhtbOzKI0N0G1hJbH8C1Jd0jUaN.jpg"
+    poster: "https://upload.wikimedia.org/wikipedia/en/3/32/A_Silent_Voice_Film_Poster.jpg",
+    banner: "assets/images/banners/monsoon-diaries.svg"
   },
 
   /* ── ROMANCE / DRAMA ── */
@@ -207,8 +206,8 @@ const movies = [
     releaseDate: "2023-06-02",
     description:
       "Nora and Hae Sung, two deeply connected childhood friends, are separated when Nora's family emigrates from South Korea. Twenty years later, they reunite in New York City for one week.",
-    poster: "https://image.tmdb.org/t/p/w500/k3waqVXSnäckOGMTg0KCUQN7yPm.jpg",
-    banner: "https://image.tmdb.org/t/p/w1280/8Af6kRcFdJhWHd0oMVW1mIFPuIE.jpg"
+    poster: "https://upload.wikimedia.org/wikipedia/en/d/da/Past_Lives_film_poster.png",
+    banner: "assets/images/banners/two-left-feet.svg"
   },
   {
     id: 15,
@@ -222,12 +221,26 @@ const movies = [
     description:
       "A jazz musician and an aspiring actress fall in love while pursuing their dreams in Los Angeles, but success begins to complicate their relationship.",
     poster: "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg",
-    banner: "https://image.tmdb.org/t/p/w1280/nadTlnTE6DdgmYsN4iLoCHpnFkn.jpg"
+    banner: "assets/images/banners/two-left-feet.svg"
+  },
+  {
+    id: 16,
+    title: "The Notebook",
+    genre: ["Romance", "Drama"],
+    language: "English",
+    duration: "2h 03m",
+    rating: 7.8,
+    certificate: "UA",
+    releaseDate: "2004-06-25",
+    description:
+      "A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom, but they are soon separated because of their social differences.",
+    poster: "https://upload.wikimedia.org/wikipedia/en/8/86/Posternotebook.jpg",
+    banner: "assets/images/banners/monsoon-diaries.svg"
   },
 
   /* ── ACTION / ADVENTURE ── */
   {
-    id: 16,
+    id: 17,
     title: "Spider-Man: Across the Spider-Verse",
     genre: ["Action", "Adventure", "Anime"],
     language: "English",
@@ -238,10 +251,10 @@ const movies = [
     description:
       "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on how to handle a new threat, Miles must redefine what it means to be a hero.",
     poster: "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
-    banner: "https://image.tmdb.org/t/p/w1280/nGxUxi3PzAFSRZMgTblQKb0jiPT.jpg"
+    banner: "assets/images/banners/crimson-horizon.svg"
   },
   {
-    id: 17,
+    id: 18,
     title: "Dune: Part Two",
     genre: ["Action", "Adventure", "Sci-Fi"],
     language: "English",
@@ -255,7 +268,7 @@ const movies = [
     banner: "https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg"
   },
   {
-    id: 18,
+    id: 19,
     title: "Top Gun: Maverick",
     genre: ["Action", "Adventure"],
     language: "English",
@@ -266,10 +279,10 @@ const movies = [
     description:
       "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot. He must confront the ghosts of his past when he leads a dangerous mission.",
     poster: "https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
-    banner: "https://image.tmdb.org/t/p/w1280/AkB0pEFEgLfHXIiQjO4vvDhEBt.jpg"
+    banner: "assets/images/banners/crimson-horizon.svg"
   },
   {
-    id: 19,
+    id: 20,
     title: "The Batman",
     genre: ["Action", "Drama"],
     language: "English",
@@ -280,23 +293,23 @@ const movies = [
     description:
       "In his second year of fighting crime, Batman uncovers corruption in Gotham City that connects to his own family while facing a serial killer known as the Riddler.",
     poster: "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg",
-    banner: "https://image.tmdb.org/t/p/w1280/5P8SmMzik6q2QdaGDzMaaMcXN4x.jpg"
+    banner: "assets/images/banners/silver-static.svg"
   },
 
-  /* ── BRAND NEW (2024-2025 releases) ── */
+  /* ── ONGOING / BRAND NEW ── */
   {
-    id: 20,
-    title: "Brand New Day",
-    genre: ["Drama", "Romance"],
+    id: 21,
+    title: "Spider-Man: Brand New Day",
+    genre: ["Action", "Adventure", "Drama"],
     language: "English",
-    duration: "1h 58m",
-    rating: 7.6,
+    duration: "2h 28m",
+    rating: 8.6,
     certificate: "UA",
-    releaseDate: "2024-09-13",
+    releaseDate: "2026-07-31",
     description:
-      "After a sudden loss, a grieving songwriter retreats to her hometown where unexpected reconnections and a bittersweet romance push her toward a long-overdue fresh start.",
-    poster: "https://image.tmdb.org/t/p/w500/qbkAqmmEIZfrCO8ZQAuIuV5RqBU.jpg",
-    banner: "https://image.tmdb.org/t/p/w1280/t5zCBSB5xMDKcSmQLopKM4KZUUX.jpg"
+      "Erased from the memories of everyone he loves, Peter Parker starts over in New York City as a street-level hero while a new underworld war pushes his double life to the breaking point.",
+    poster: "https://upload.wikimedia.org/wikipedia/en/9/9a/Spider-Man_Brand_New_Day_poster.jpg",
+    banner: "assets/images/banners/starbound-legacy.svg"
   }
 ];
 
@@ -326,20 +339,17 @@ const theaters = [
 ];
 
 /* ---------- Seat configuration ----------
-   Rows A–D → Regular (economy)
-   Rows E–G → Premium
-   Rows H–J → Recliner (VIP)
-   12 seats per row, aisle after seat 6. */
+   Retains original rows A–F and adds G–J (12 seats per row). */
 const seatConfig = {
   rowTypes: [
     { row: "A", type: "regular"  },
     { row: "B", type: "regular"  },
-    { row: "C", type: "regular"  },
-    { row: "D", type: "regular"  },
-    { row: "E", type: "premium"  },
-    { row: "F", type: "premium"  },
-    { row: "G", type: "premium"  },
-    { row: "H", type: "recliner" },
+    { row: "C", type: "premium"  },
+    { row: "D", type: "premium"  },
+    { row: "E", type: "recliner" },
+    { row: "F", type: "recliner" },
+    { row: "G", type: "regular"  },
+    { row: "H", type: "premium"  },
     { row: "I", type: "recliner" },
     { row: "J", type: "recliner" }
   ],
@@ -347,8 +357,8 @@ const seatConfig = {
   aisleAfterSeat: 6,
   prices: {
     regular:  200,
-    premium:  350,
-    recliner: 550
+    premium:  250,
+    recliner: 350
   },
   convenienceFee: 30,
   maxSeatsPerBooking: 8

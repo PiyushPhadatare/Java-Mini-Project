@@ -1076,3 +1076,305 @@ select:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   AUTH — Login page + user menu (auth.js / login.html)
+   ========================================================= */
+
+/* ---------- Auth page wrapper ---------- */
+.auth-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--header-height) - 80px);
+  padding: 40px 0;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- Tabs ---------- */
+.auth-tabs {
+  display: flex;
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 28px;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 10px;
+  border-radius: calc(var(--radius-sm) - 2px);
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.auth-tab.is-active {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- Panel content ---------- */
+.auth-card__title {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.auth-card__sub {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-bottom: 22px;
+}
+
+/* ---------- Form ---------- */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.form-group input {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  color: var(--color-text);
+  transition: border-color 0.15s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: var(--color-text-faint);
+}
+
+/* ---------- Error / success messages ---------- */
+.auth-error {
+  background: rgba(226, 35, 26, 0.1);
+  border: 1px solid rgba(226, 35, 26, 0.3);
+  color: #ff6b6b;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+
+.auth-success {
+  background: rgba(47, 216, 137, 0.1);
+  border: 1px solid rgba(47, 216, 137, 0.3);
+  color: var(--color-green);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+
+/* ---------- Divider ---------- */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-text-faint);
+  font-size: 0.82rem;
+  margin: 18px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border-soft);
+}
+
+/* ---------- Demo accounts ---------- */
+.demo-accounts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.demo-account-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  text-align: left;
+  color: var(--color-text);
+  transition: border-color 0.15s ease;
+}
+
+.demo-account-btn:hover {
+  border-color: var(--color-accent);
+}
+
+.demo-account-btn span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.demo-account-btn strong {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+}
+
+.demo-account-btn small {
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+}
+
+.auth-note {
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+  text-align: center;
+  margin: 16px 0 0;
+}
+
+/* ---------- User avatar (header + demo buttons) ---------- */
+.user-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  flex-shrink: 0;
+}
+
+/* ---------- User menu (dropdown) ---------- */
+.user-menu-wrap {
+  position: relative;
+}
+
+.user-avatar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px 6px 6px;
+  color: var(--color-text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: border-color 0.15s ease;
+}
+
+.user-avatar-btn:hover {
+  border-color: var(--color-text-faint);
+}
+
+.user-name {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  box-shadow: var(--shadow-card);
+  z-index: 200;
+}
+
+.user-menu__info {
+  padding: 10px 12px 12px;
+  border-bottom: 1px solid var(--color-border-soft);
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.user-menu__info strong {
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.user-menu__info span {
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+}
+
+.user-menu__link {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  text-align: left;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.user-menu__link:hover {
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+}
+
+.user-menu__logout {
+  color: var(--color-accent);
+  margin-top: 4px;
+  border-top: 1px solid var(--color-border-soft);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.user-menu__logout:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-hover);
+}
+
+/* ---------- Login button in header ---------- */
+.auth-header-btn {
+  font-size: 0.85rem;
+}

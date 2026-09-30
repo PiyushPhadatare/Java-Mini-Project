@@ -24,7 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectShowBtn = document.getElementById("selectShowBtn");
   if (selectShowBtn) {
     selectShowBtn.addEventListener("click", () => {
-      // Movie is already saved in storage; just move on to show selection
+      if (typeof isLoggedIn === "function" && !isLoggedIn()) {
+        window.location.href = "login.html?redirect=shows.html";
+        return;
+      }
       window.location.href = "shows.html";
     });
   }
