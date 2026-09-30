@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a1a5a"/>
+      <stop offset="100%" stop-color="#3a0d28"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ff6bb3" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ff6bb3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#g)"/>
+  <rect width="400" height="600" fill="url(#glow)"/>
+  <g opacity="0.5" stroke="#ff6bb3" stroke-width="1.5">
+    <circle cx="200.0" cy="150" r="70"/>
+    <circle cx="200.0" cy="150" r="46"/>
+  </g>
+  <rect x="0" y="410" width="400" height="190" fill="#05070c" opacity="0.55"/>
+  <text x="200.0" y="470" text-anchor="middle" fill="#f5f6fa" font-family="'Poppins',sans-serif" font-weight="700" font-size="30" letter-spacing="0.5"><tspan x="200.0" y="323.0">Two Left</tspan><tspan x="200.0" y="357.0">Feet</tspan></text>
+  <text x="200.0" y="560" text-anchor="middle" fill="#ff6bb3" font-family="'Inter',sans-serif" font-weight="600" font-size="14" letter-spacing="3">CINEBOOK</text>
+</svg>
