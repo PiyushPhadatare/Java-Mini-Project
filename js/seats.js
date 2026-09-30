@@ -53,9 +53,23 @@ function showSeatsEmptyState(content, emptyState, emptyMessage, message) {
 }
 
 /* ---------- Seat generation ---------- */
-// Deterministic "already booked" check so the same show always
-// shows the same booked seats (roughly 1 in 9 seats).
+// Returns true if a seat is taken by a non-cancelled booking OR by the
+// deterministic "pre-booked" formula (so the grid always looks occupied).
 function isSeatBooked(showId, seatId) {
+  // 1. Check real bookings in localStorage — skip cancelled ones
+  const history = getBookingHistory();
+  for (const booking of history) {
+    if (
+      booking.status !== "cancelled" &&
+      String(booking.showId) === String(showId) &&
+      Array.isArray(booking.seats) &&
+      booking.seats.includes(seatId)
+    ) {
+      return true;
+    }
+  }
+
+  // 2. Fallback deterministic formula (~1 in 9 seats "pre-booked")
   const str = String(showId) + seatId;
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
@@ -63,6 +77,7 @@ function isSeatBooked(showId, seatId) {
   }
   return hash % 9 === 0;
 }
+
 
 function generateSeats(showId) {
   const seats = [];

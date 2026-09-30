@@ -74,3 +74,15 @@ function clearBookingFlow() {
   localStorage.removeItem(STORAGE_KEYS.SHOW);
   localStorage.removeItem(STORAGE_KEYS.SEATS);
 }
+
+/* ---------- Cancel a booking ----------
+   Marks the booking as 'cancelled' so its seats are freed
+   back on the seat map for the same show. */
+function cancelBooking(bookingId) {
+  const history = getBookingHistory();
+  const updated = history.map((b) =>
+    b.bookingId === bookingId ? { ...b, status: "cancelled" } : b
+  );
+  localStorage.setItem(STORAGE_KEYS.HISTORY, JSON.stringify(updated));
+}
+
