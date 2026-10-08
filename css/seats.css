@@ -116,6 +116,10 @@
   transform: translateY(-2px);
 }
 
+.seat--executive {
+  border-color: rgba(96, 165, 250, 0.45); /* soft blue */
+}
+
 .seat--premium {
   border-color: rgba(255, 183, 3, 0.4);
 }
@@ -124,6 +128,41 @@
   border-color: rgba(47, 216, 137, 0.4);
   border-radius: 10px 10px 14px 14px;
 }
+
+/* Tier section headers (BookMyShow-style: "Rs.260 EXECUTIVE") */
+.seat-tier-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 480px;
+  margin: 10px 0 4px 0;
+  padding-left: 6px;
+}
+
+.seat-tier-header__price {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.seat-tier-header__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-faint);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.seat-tier-header::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-border-soft);
+  margin-left: 4px;
+}
+
 
 .seat--selected {
   background: var(--color-seat-selected);
@@ -172,6 +211,11 @@
   background: transparent;
 }
 
+.seat-legend__swatch--executive {
+  border-color: rgba(96, 165, 250, 0.6);
+  background: transparent;
+}
+
 .seat-legend__swatch--premium {
   border-color: rgba(255, 183, 3, 0.5);
 }
@@ -189,6 +233,7 @@
   background: var(--color-seat-booked);
   border-color: var(--color-seat-booked);
 }
+
 
 /* Sidebar summary sticks while scrolling on desktop */
 .seats-layout .summary-card {

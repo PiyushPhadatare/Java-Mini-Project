@@ -102,38 +102,60 @@ function renderSeatGrid() {
   const grid = document.getElementById("seatGrid");
   if (!grid) return;
 
-  const rows = seatConfig.rowTypes.map((r) => r.row);
+  // Tier display config: order top-to-bottom (cheapest first = furthest from screen)
+  const tierOrder  = ["regular", "executive", "premium", "recliner"];
+  const tierLabels = {
+    regular:   "NORMAL",
+    executive: "EXECUTIVE",
+    premium:   "PREMIUM",
+    recliner:  "RECLINER"
+  };
 
-  grid.innerHTML = rows
-    .map((row) => {
-      const rowSeats = currentSeats.filter((s) => s.row === row);
-      const seatButtons = rowSeats
-        .map((seat) => {
-          const afterAisle = seat.number === seatConfig.aisleAfterSeat;
-          const seatHtml = `
-            <button type="button"
-              class="seat seat--${seat.type} seat--${seat.status}"
-              data-id="${seat.id}"
-              aria-label="Seat ${seat.id}, ${seat.type}, ${seat.status}">
-              ${seat.number}
-            </button>
-          `;
-          return afterAisle ? seatHtml + `<span class="seat-row__aisle"></span>` : seatHtml;
-        })
-        .join("");
+  let html = "";
+  let lastType = null;
 
-      return `
-        <div class="seat-row">
-          <span class="seat-row__label">${row}</span>
-          <span class="seat-row__seats">${seatButtons}</span>
-          <span class="seat-row__label">${row}</span>
+  seatConfig.rowTypes.forEach((rowInfo) => {
+    // Inject a section header whenever the type changes
+    if (rowInfo.type !== lastType) {
+      const price = seatConfig.prices[rowInfo.type];
+      html += `
+        <div class="seat-tier-header">
+          <span class="seat-tier-header__price">Rs.${price}</span>
+          <span class="seat-tier-header__label">${tierLabels[rowInfo.type]}</span>
         </div>
       `;
-    })
-    .join("");
+      lastType = rowInfo.type;
+    }
 
+    const rowSeats = currentSeats.filter((s) => s.row === rowInfo.row);
+    const seatButtons = rowSeats
+      .map((seat) => {
+        const afterAisle = seat.number === seatConfig.aisleAfterSeat;
+        const seatHtml = `
+          <button type="button"
+            class="seat seat--${seat.type} seat--${seat.status}"
+            data-id="${seat.id}"
+            aria-label="Seat ${seat.id}, ${seat.type}, ${seat.status}">
+            ${seat.number}
+          </button>
+        `;
+        return afterAisle ? seatHtml + `<span class="seat-row__aisle"></span>` : seatHtml;
+      })
+      .join("");
+
+    html += `
+      <div class="seat-row">
+        <span class="seat-row__label">${rowInfo.row}</span>
+        <span class="seat-row__seats">${seatButtons}</span>
+        <span class="seat-row__label">${rowInfo.row}</span>
+      </div>
+    `;
+  });
+
+  grid.innerHTML = html;
   grid.addEventListener("click", handleSeatClick);
 }
+
 
 /* ---------- Interaction ---------- */
 function handleSeatClick(event) {

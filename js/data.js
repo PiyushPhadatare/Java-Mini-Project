@@ -370,23 +370,24 @@ const theaters = [
    Retains original rows A–F and adds G–J (12 seats per row). */
 const seatConfig = {
   rowTypes: [
-    { row: "A", type: "regular"  },
-    { row: "B", type: "regular"  },
-    { row: "C", type: "premium"  },
-    { row: "D", type: "premium"  },
-    { row: "E", type: "recliner" },
-    { row: "F", type: "recliner" },
-    { row: "G", type: "regular"  },
-    { row: "H", type: "premium"  },
-    { row: "I", type: "recliner" },
-    { row: "J", type: "recliner" }
+    { row: "A", type: "regular"   },
+    { row: "B", type: "regular"   },
+    { row: "C", type: "executive" },
+    { row: "D", type: "executive" },
+    { row: "E", type: "executive" },
+    { row: "F", type: "premium"   },
+    { row: "G", type: "premium"   },
+    { row: "H", type: "premium"   },
+    { row: "I", type: "recliner"  },
+    { row: "J", type: "recliner"  }
   ],
   seatsPerRow: 12,
   aisleAfterSeat: 6,
   prices: {
-    regular:  200,
-    premium:  250,
-    recliner: 350
+    regular:   200,
+    executive: 260,
+    premium:   340,
+    recliner:  480
   },
   convenienceFee: 30,
   maxSeatsPerBooking: 8
