@@ -384,10 +384,10 @@ const seatConfig = {
   seatsPerRow: 12,
   aisleAfterSeat: 6,
   prices: {
-    regular:   200,
-    executive: 260,
-    premium:   340,
-    recliner:  480
+    regular:   320,
+    executive: 340,
+    premium:   360,
+    recliner:  900
   },
   convenienceFee: 30,
   maxSeatsPerBooking: 8
