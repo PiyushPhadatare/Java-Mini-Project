@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
   setText("seatsTheaterInfo", `${show.theater} \u2022 ${show.screen}`);
   setText("seatsShowInfo", `${formatDateShort(show.date)} \u2022 ${show.time}`);
 
-  currentSeats = generateSeats(show.id);
+  currentSeats = generateSeats(show.id, movie);
   selectedSeats = [];
 
-  renderSeatGrid();
+  renderSeatGrid(movie);
   updateSummary();
 
   const continueBtn = document.getElementById("continueBtn");
@@ -50,6 +50,18 @@ function showSeatsEmptyState(content, emptyState, emptyMessage, message) {
   if (content) content.hidden = true;
   if (emptyState) emptyState.hidden = false;
   if (emptyMessage) emptyMessage.textContent = message;
+}
+
+/* ---------- Movie Price Resolver ---------- */
+function getMoviePrices(movie) {
+  if (movie) {
+    if (movie.prices) return movie.prices;
+    if (typeof movies !== "undefined" && Array.isArray(movies)) {
+      const found = movies.find((m) => m.id === movie.id);
+      if (found && found.prices) return found.prices;
+    }
+  }
+  return seatConfig.prices;
 }
 
 /* ---------- Seat generation ---------- */
@@ -79,7 +91,8 @@ function isSeatBooked(showId, seatId) {
 }
 
 
-function generateSeats(showId) {
+function generateSeats(showId, movie) {
+  const prices = getMoviePrices(movie);
   const seats = [];
   seatConfig.rowTypes.forEach((rowInfo) => {
     for (let number = 1; number <= seatConfig.seatsPerRow; number++) {
@@ -89,7 +102,7 @@ function generateSeats(showId) {
         row: rowInfo.row,
         number: number,
         type: rowInfo.type,
-        price: seatConfig.prices[rowInfo.type],
+        price: prices[rowInfo.type] || seatConfig.prices[rowInfo.type],
         status: isSeatBooked(showId, id) ? "booked" : "available"
       });
     }
@@ -98,7 +111,7 @@ function generateSeats(showId) {
 }
 
 /* ---------- Rendering ---------- */
-function renderSeatGrid() {
+function renderSeatGrid(movie) {
   const grid = document.getElementById("seatGrid");
   if (!grid) return;
 
@@ -111,13 +124,14 @@ function renderSeatGrid() {
     recliner:  "RECLINER"
   };
 
+  const prices = getMoviePrices(movie);
   let html = "";
   let lastType = null;
 
   seatConfig.rowTypes.forEach((rowInfo) => {
     // Inject a section header whenever the type changes
     if (rowInfo.type !== lastType) {
-      const price = seatConfig.prices[rowInfo.type];
+      const price = prices[rowInfo.type] || seatConfig.prices[rowInfo.type];
       html += `
         <div class="seat-tier-header">
           <span class="seat-tier-header__price">Rs.${price}</span>
