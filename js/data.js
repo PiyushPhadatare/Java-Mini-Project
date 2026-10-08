@@ -173,16 +173,16 @@ const movies = [
   /* ── ANIME ── */
   {
     id: 9,
-    title: "Demon Slayer: Mugen Train",
+    title: "Demon Slayer: Infinity Castle",
     genre: ["Anime", "Action", "Adventure"],
     language: "Japanese",
-    duration: "1h 57m",
-    rating: 8.2,
+    duration: "2h 15m",
+    rating: 8.8,
     certificate: "UA",
-    releaseDate: "2020-10-16",
+    releaseDate: "2025-05-16",
     description:
-      "Tanjiro and his friends join the Flame Hashira Rengoku on the Mugen Train to investigate the disappearance of over forty people aboard a demon-infested locomotive.",
-    poster: "https://image.tmdb.org/t/p/w500/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
+      "The Demon Slayer Corps plunge into the Infinity Castle to face Muzan Kibutsuji and the remaining Upper Ranks in the ultimate, climactic battle.",
+    poster: "assets/images/movies/demon-slayer-infinity-castle.jpg",
     banner: "https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
     prices: {
       regular:   250,

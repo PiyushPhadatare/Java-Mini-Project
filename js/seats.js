@@ -116,7 +116,6 @@ function renderSeatGrid(movie) {
   if (!grid) return;
 
   // Tier display config: order top-to-bottom (cheapest first = furthest from screen)
-  const tierOrder  = ["regular", "executive", "premium", "recliner"];
   const tierLabels = {
     regular:   "NORMAL",
     executive: "EXECUTIVE",
